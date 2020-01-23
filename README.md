@@ -1,78 +1,80 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Vehicle
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Vehicle is a simple Laravel project to list, filter and sort database records from 4 different tables.
 
-## About Laravel
+## Installation (Using XAMPP)
+1. Clone *master* Branch
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2. Run *composer install* to install the dependencies
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+   ```bash
+     composer install
+   ```
+3. Run the following command to create or replace the database view:
+   
+   ```bash
+     php artisan view:vehiclesExpenses
+   ```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+3. Run the following command to start the project:
+   ```bash
+     php artisan serve
+   ```
 
-## Learning Laravel
+4. Open the following URL:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+   ```bash
+     http://127.0.0.1:8000/
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation (Using Docker)
+1. Clone *docker* Branch
 
-## Laravel Sponsors
+2. Use [Docker](https://www.docker.com/)* to run the project (run the following command after docker installation).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+   ```bash
+     docker-compose up -d --build
+   ```
+3. Run the following command to create or replace the database view:
+   ```bash
+     php artisan view:vehiclesExpenses
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+4. Open the following URL:
 
-## Contributing
+   ```bash
+     localhost:8100
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Running Unit tests:
+1. Run the following command:
 
-## Code of Conduct
+   ```bash
+     vendor\bin\phpunit
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+## How to use?
+Import the Postman collection or use the following URLs:
+1. To list all Vehicles expenses: [/api/vehicles/expenses](http://127.0.0.1:8000/api/vehicles/expenses)
+2. To search for a specific vehicle expenses by vehicle name: [/api/vehicles/expenses?name="prof"](http://127.0.0.1:8000/api/vehicles/expenses?name="prof")
+3. To filter all vehicle expenses by type*: [/api/vehicles/expenses?type[]="fuel"](http://127.0.0.1:8000/api/vehicles/expenses?type[]="fuel")
+4. To order all vehicle expenses by cost (desc): [/api/vehicles/expenses?cost="desc"](http://127.0.0.1:8000/api/vehicles/expenses?cost="desc")
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+\* You can use one or more filter parameters from the following list
+### Available query parameters for filters:
+* name = "prof"
+* type[]="fuel"&type[]="service"
+* min_cost=50 
+* max_cost=50
+* min_creation_date="2014-11-28"
+* max_creation_date="2014-11-28"
 
-## License
+### Available query parameters for sorting:
+* cost="ASC"
+* creation_date="DESC"
+   
+## Notes
+* I have uploaded the .env file to make it easier to use.
+* Debug key is set to true as It's a development version.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
