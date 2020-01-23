@@ -1,0 +1,4 @@
+FROM mysql
+ENV MYSQL_ROOT_PASSWORD="secret"  MYSQL_USER="osama" MYSQL_PASSWORD="secret" MYSQL_DATABASE="myapp"
+COPY ./vehicles.sql  /home
+COPY ./insertion.sh /docker-entrypoint-initdb.d/
