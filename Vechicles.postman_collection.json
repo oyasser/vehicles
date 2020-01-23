@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "06e5f640-4c51-48fb-adab-f63d94da998f",
+		"name": "Vechicles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Filters / Sorting all vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vehicles/expenses?name=prof",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vehicles",
+						"expenses"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "prof"
+						}
+					]
+				},
+				"description": "Filters query prameters\n\nname = \"prof\", \ntype[]=fuel&type[]=\"service\", \nmin_cost = 50 \nmax_cost =50 \nmin_creation_date= \"2014-11-28\"\nmax_creation_date = \"2014-11-28\"\n\nSorting query prameters\n\ncost= \"ASC\"\ncreation_date =\"DESC\""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vehicles/expenses",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vehicles",
+						"expenses"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
